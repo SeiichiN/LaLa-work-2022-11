@@ -1,6 +1,6 @@
-package chap03.p112;
+package chap03;
 
-public class Main {
+public class Main_p112 {
 
 	public static void main(String[] args) {
 		System.out.println("m / w > ");

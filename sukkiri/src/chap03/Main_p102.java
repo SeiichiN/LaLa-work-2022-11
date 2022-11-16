@@ -1,6 +1,6 @@
-package chap03.p102;
+package chap03;
 
-public class Main {
+public class Main_p102 {
 
 	public static void main(String[] args) {
 		boolean tenki = false;

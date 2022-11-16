@@ -1,6 +1,6 @@
-package chap03.p119;
+package chap03;
 
-public class Main {
+public class Main_p119 {
 
 	public static void main(String[] args) {
 		System.out.println("あなたの運勢を占います");

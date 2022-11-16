@@ -1,6 +1,6 @@
-package chap03.p104;
+package chap03;
 
-public class Main {
+public class Main_p104 {
 
 	public static void main(String[] args) {
 		boolean doorClose = true;
