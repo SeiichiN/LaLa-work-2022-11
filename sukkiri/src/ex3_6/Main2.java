@@ -14,6 +14,7 @@ public class Main2 {
 					.nextInt();
 			if (num == ans) {
 				System.out.println("アタリ！");
+				
 				flag = 1;
 				break;
 			} else {
