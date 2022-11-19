@@ -1,4 +1,4 @@
-package ex2_3;
+package rensyu.ex2_3;
 
 public class Main {
 	public static void main(String[] args) {

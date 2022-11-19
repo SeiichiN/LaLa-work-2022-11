@@ -1,4 +1,4 @@
-package ex3_5;
+package rensyu.ex3_5;
 
 public class Main {
 
