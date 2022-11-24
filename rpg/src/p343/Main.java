@@ -1,6 +1,6 @@
 package p343;
 
-import world.Hero;
+import old.Hero;
 import world.Sword;
 
 public class Main {
