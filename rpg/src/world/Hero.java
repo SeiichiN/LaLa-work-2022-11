@@ -3,6 +3,15 @@ package world;
 public class Hero {
 	public String name;
 	public int hp;
+	public Sword sword;
+	
+	public Hero() {
+		this.hp = 100;
+	}
+	public Hero(String name) {
+		this.hp = 100;
+		this.name = name;
+	}
 	
 	public void sleep() {
 		this.hp = 100;
