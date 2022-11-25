@@ -1,0 +1,27 @@
+課題 11月25日
+
+(1) Personクラスを以下のようにしても
+インスタンスを生成できるようにしてください。
+
+Person p1 = new Person("桃太郎", 21, '1');
+p1.print();
+
+Person p2 = new Person();
+p2.name = "かぐや";
+p2.age = 19;
+p2.gender = '2';
+p2.print();
+
+
+
+(2) 次のクラスを定義し、インスタンスを生成してください。
+
+Superman : Person の子クラス。
+メソッドとして fly() を持っている。
+System.out.println("スーパーマンは空を飛んだ");
+
+Superman s = new Superman("ケント", 25, '1');
+s.print();
+s.fly();
+
+;; 修正時刻: Fri 2022/11/25 09:26:13

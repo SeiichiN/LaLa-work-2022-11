@@ -1,6 +1,6 @@
 package p387;
 
-import world.Matango;
+import old.Matango;
 import world.SuperHero;
 
 public class Main {
@@ -9,7 +9,7 @@ public class Main {
 		SuperHero sh = new SuperHero();
 		Matango m = new Matango();
 		sh.fly();
-		sh.attack(m);
+		// sh.attack(m);
 
 	}
 
