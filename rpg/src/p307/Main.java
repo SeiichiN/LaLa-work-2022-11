@@ -1,6 +1,6 @@
 package p307;
 
-import world.Hero;
+import old.Hero;
 import world.Matango;
 
 public class Main {
