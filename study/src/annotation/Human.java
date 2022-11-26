@@ -5,7 +5,8 @@ public class Human extends Character {
 		System.out.println("ばじる");
 	}
 
-	public void run() {
+	@Override
+	public void ran() {
 		System.out.println("XXX");
 	}
 }
