@@ -1,15 +1,11 @@
-package v2;
+package v3;
 
 import java.util.Random;
 
 public class Com extends Player {
+	NextHandInterface nhi;
 	public Com() {}
 	public Com(String name) {
 		super(name);
-	}
-
-	public int nextHand() {
-		int hand = new Random().nextInt(3);
-		return hand;
 	}
 }

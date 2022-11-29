@@ -6,7 +6,7 @@ public class Human extends Character {
 	}
 
 	@Override
-	public void ran() {
+	public void run() {
 		System.out.println("XXX");
 	}
 }

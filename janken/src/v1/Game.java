@@ -1,19 +1,16 @@
 package v1;
 
 public class Game {
-	public void judge(Player player1, Player player2) {
-		int p1 = player1.getHand();
-		int p2 = player2.getHand();
-		
-		if (p1 == p2) {
-			player1.setResult(Conf.DRAW);
-			player2.setResult(Conf.DRAW);
-		} else if ((p1 + 1) % 3 == p2) {
-			player1.setResult(Conf.WIN);
-			player2.setResult(Conf.LOSE);
+	public void judge(Player p1, Player p2) {
+		if (p1.hand == p2.hand) {
+			p1.result = "draw";
+			p2.result = "draw";
+		} else if ((p1.hand + 1) % 3 == p2.hand) {
+			p1.result = "win";
+			p2.result = "lose";
 		} else {
-			player1.setResult(Conf.LOSE);
-			player2.setResult(Conf.WIN);
+			p1.result = "lose";
+			p2.result = "win";
 		}
 	}
 }

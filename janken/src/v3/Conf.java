@@ -1,4 +1,4 @@
-package v1;
+package v3;
 
 public class Conf {
 	public static final String WIN = "win";

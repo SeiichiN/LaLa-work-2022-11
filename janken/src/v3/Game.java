@@ -1,4 +1,4 @@
-package v2;
+package v3;
 
 public class Game {
 	public void judge(Player player1, Player player2) {
@@ -6,14 +6,14 @@ public class Game {
 		int p2 = player2.getHand();
 		
 		if (p1 == p2) {
-			player1.setResult("draw");
-			player2.setResult("draw");
+			player1.setResult(Conf.DRAW);
+			player2.setResult(Conf.DRAW);
 		} else if ((p1 + 1) % 3 == p2) {
-			player1.setResult("win");
-			player2.setResult("lose");
+			player1.setResult(Conf.WIN);
+			player2.setResult(Conf.LOSE);
 		} else {
-			player1.setResult("lose");
-			player2.setResult("win");
+			player1.setResult(Conf.LOSE);
+			player2.setResult(Conf.WIN);
 		}
 	}
 }
