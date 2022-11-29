@@ -1,0 +1,13 @@
+インターフェース例
+
+Plain クラスを作成する
+Flyingインターフェース型の flyingEngine フィールドがある。
+メソッドとして setFlyingEngine() メソッドをもつ。
+
+
+Flyingインターフェース
+fly()メソッド
+
+Flyingインターフェースを実装したクラス
+PloperaEngineクラス
+JetEngineクラス
