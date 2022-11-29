@@ -1,6 +1,6 @@
 package world;
 
-public class Hero {
+public class Hero extends Character {
 	public String name = "ミナト";
 	public int hp = 100;
 		
