@@ -5,9 +5,9 @@ public abstract class Monster {
 	public int mp;
 	
     public abstract void attack();
-	public abstract void run();
+	// public abstract void run();
 	
-//	public void run() {
-//		System.out.println("モンスターは逃げ出した。");
-//	}
+	public void run() {
+		System.out.println("モンスターは逃げ出した。");
+	}
 }

@@ -3,10 +3,10 @@ package rensyu12;
 public class Main2 {
 
 	public static void main(String[] args) {
-		Y[] ys = new Y[2];
-		ys[0] = new A();
-		ys[1] = new B();
-		for (Y y : ys) {
+		Y[] hai = new Y[2];
+		hai[0] = new A();
+		hai[1] = new B();
+		for (Y y : hai) {
 			y.b();
 		}
 
