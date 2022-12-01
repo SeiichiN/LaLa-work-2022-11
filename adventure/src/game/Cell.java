@@ -9,8 +9,20 @@ public class Cell {
 	int gold;
 	boolean isMonster;
 	
-	public Cell() {}
+	public Cell() {
+		this(null, null, null, 0, false);
+	}
+	public Cell(Monster m, Character c1, Character c2, int g, boolean b) {
+		this.monster = m;
+		this.chara1 = c1;
+		this.chara2 = c2;
+		this.gold = g;
+		this.isMonster = b;
+	}
 	
+	public String toString() {
+		return monster.toString();
+	}
 	public Monster getMonster() {
 		return monster;
 	}

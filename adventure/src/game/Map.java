@@ -11,7 +11,7 @@ public class Map {
 	public Map () {
 		for (int i=0; i<ROW; i++) {
 			for (int j=0; j<COL; j++) {
-				CELLS[i][j].setMonster(false);
+				CELLS[i][j] = new Cell();
 			}
 		}
 	}
@@ -21,6 +21,18 @@ public class Map {
 		Dragon dragon2 = new Dragon();
 		setMonster(dragon2);
 		
+	}
+	
+	public void printMap() {
+		for (int i=0; i<ROW; i++) {
+			for (int j=0; j<COL; j++) {
+				if (CELLS[i][j] == null) {
+					System.out.println("NULL");
+				} else {
+					System.out.println(CELLS[i][j]);
+				}
+			}
+		}
 	}
 	
 	private void setMonster(Monster m) {
