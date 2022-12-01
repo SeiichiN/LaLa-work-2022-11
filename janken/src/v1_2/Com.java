@@ -10,6 +10,9 @@ public class Com extends Player {
 	public Com(String name) {
 		super(name);
 	}
+	public Com(int i) {
+		super("コム" + i);
+	}
 	@Override
 	public void nextHand() {
 		this.hand = new Random().nextInt(3);

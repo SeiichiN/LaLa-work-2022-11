@@ -3,7 +3,7 @@ package v1_2;
 public abstract class Player {
 	String name;
 	int hand;
-	String[] res = new String[2];
+	String[] res = new String[Main.NUM];
 	String result;
 	String[] strHand = {"グー", "チョキ", "パー"};
 	
@@ -25,19 +25,31 @@ public abstract class Player {
 			this.res[no] = "lose";
 		}		
 	}
+	/**
+	 * "win" -- 001
+	 * "draw -- 010
+	 *  "lose" -- 100
+	 */
 	public void setResult() {
-		if ((res[0].equals("win") && res[1].equals("win"))
-				|| (res[0].equals("win") && res[1].equals("draw"))
-				|| (res[0].equals("draw") && res[1].equals("win"))) {
-			result = "win";
-		}	else if ((res[0].equals("lose") && res[1].equals("lose"))
-				|| (res[0].equals("lose") && res[1].equals("draw"))
-				|| (res[0].equals("draw") && res[1].equals("lose"))) {
-			result = "lose";
-		} else {
-			result = "draw";
+		// flag = 000
+		for (int i=0; i<Main.NUM-1; i++) {
+			if (res[i].equals("win")) {
+				// flag = flag OR 001
+			} else if (res[i].equals("draw")) {
+				// flag = flag OR 010
+			} else if (res[i].equals("lose")) {
+				// flag = flag OR 100
+			}
 		}
+		// if (flag == 001 || flag == 011) {
+		//   result = "win"
+		// } else if (flag == 100 || flag == 110) {
+		//   result = "lose"
+		// } else {
+		//   result = "draw"
+		// }
 	}
+	
 	public void printResult() {
 		System.out.println
 		  (this.name + "の手は" + strHand[this.hand] + " 結果:"
