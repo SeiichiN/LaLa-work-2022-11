@@ -6,6 +6,13 @@ public class Wizard {
 	private String name;
 	private Wand wand;
 	
+	public Wizard() {}
+	public Wizard(String name, int hp, int mp) {
+		this.setName(name);
+		this.setHp(hp);
+		this.setMp(mp);
+	}
+	
 	void heal(Hero h) {
 		int basePoint = 10;
 		int recovPoint = 
