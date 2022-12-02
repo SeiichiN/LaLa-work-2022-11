@@ -1,11 +1,11 @@
-package app;
+package v1;
 
 public class Main {
 
 	public static void main(String[] args) {
-		Com com = new Com();
+		Com com = new Com("コンちゃん");
+		Human human = new Human("人間");
 		com.nextHand();
-		Human human = new Human();
 		human.nextHand();
 		Game game = new Game();
 		game.judge(com, human);

@@ -1,7 +1,7 @@
-package app;
+package v1;
 
 public class Game {
-	public void judge(Com p1, Human p2) {
+	public void judge(Player p1, Player p2) {
 		if (p1.hand == p2.hand) {
 			p1.result = "draw";
 			p2.result = "draw";
