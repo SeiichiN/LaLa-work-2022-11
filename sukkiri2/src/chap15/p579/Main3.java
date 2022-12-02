@@ -11,6 +11,7 @@ public class Main3 {
 		c.set(Calendar.MONTH, 9);
 		Date d = c.getTime();
 		System.out.println(d);
+		
 		Date now = new Date();
 		c.setTime(now);
 		int y = c.get(Calendar.YEAR);
