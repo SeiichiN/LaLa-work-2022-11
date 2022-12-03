@@ -15,9 +15,14 @@ public class Main {
 		for (int i=0; i<NUM; i++) {
 			players[i].nextHand();
 		}
+		int k = 0;
 		for (int i=0; i<NUM; i++) {
-			players[i].judge(players[(i+1)%3], 0);
-			players[i].judge(players[(i+2)%3], 1);
+			for (int j=0; j<NUM; j++) {
+				if (i == j) continue;
+				players[i].judge(players[j], k);
+				k++;
+			}
+			k = 0;
 		}
 		for (int i=0; i<NUM; i++) {
 			players[i].setResult();

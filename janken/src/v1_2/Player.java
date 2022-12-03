@@ -31,23 +31,23 @@ public abstract class Player {
 	 *  "lose" -- 100
 	 */
 	public void setResult() {
-		// flag = 000
+		byte flag = 0b00000000;
 		for (int i=0; i<Main.NUM-1; i++) {
 			if (res[i].equals("win")) {
-				// flag = flag OR 001
+				flag = (byte) (flag | 0b00000001);
 			} else if (res[i].equals("draw")) {
-				// flag = flag OR 010
+				flag = (byte) (flag | 0b00000010);
 			} else if (res[i].equals("lose")) {
-				// flag = flag OR 100
+				flag = (byte) (flag | 0b00000100);
 			}
 		}
-		// if (flag == 001 || flag == 011) {
-		//   result = "win"
-		// } else if (flag == 100 || flag == 110) {
-		//   result = "lose"
-		// } else {
-		//   result = "draw"
-		// }
+		 if (flag == 0b00000001 || flag == 0b00000011) {
+		   this.result = "win";
+		 } else if (flag == 0b00000100 || flag == 0b00000110) {
+		   this.result = "lose";
+		 } else {
+		   this.result = "draw";
+		 }
 	}
 	
 	public void printResult() {
