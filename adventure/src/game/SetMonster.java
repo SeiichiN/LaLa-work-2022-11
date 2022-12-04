@@ -16,7 +16,7 @@ public class SetMonster {
 	private int sizeE;
 	private int sizeF;
 
-	public void exec() {
+	public List<Place> exec() {
 		Map map = Map.getInstance();
 		calcSize(map);
 		int placeNum = getAllPlaceSize(map);
@@ -31,17 +31,20 @@ public class SetMonster {
 
 		Place goblinPlace = getMonsterPlace(map, goblinIdx);
 		Goblin goblin = new Goblin("ゴブリン", 70);
-		dragonPlace.setMonster(goblin);
+		goblinPlace.setMonster(goblin);
 		monsterPlaceList.add(goblinPlace);
 
 		Place slimePlace = getMonsterPlace(map, slimeIdx);
 		Slime slime = new Slime("スライム", 50);
-		dragonPlace.setMonster(slime);
+		slimePlace.setMonster(slime);
 		monsterPlaceList.add(slimePlace);
-	}
-	public List<Place> getMonsterPlaceList() {
+
 		return monsterPlaceList;
 	}
+//	public List<Place> getMonsterPlaceList() {
+//		this.exec();
+//		return monsterPlaceList;
+//	}
 
 	private void calcSize(Map map) {
 		sizeA = map.getRoadA().size();

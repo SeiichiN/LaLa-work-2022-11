@@ -16,8 +16,7 @@ public class Main {
 		scene.setSceneAll();
 		
 		SetMonster setMonster = new SetMonster();
-		setMonster.exec();
-		List<Place> monsterPlaceList = setMonster.getMonsterPlaceList();
+		List<Place> monsterPlaceList = setMonster.exec();
 		for (Place monsterPlace : monsterPlaceList) {
 			System.out.println(monsterPlace.getMonster());
 		}
@@ -29,6 +28,7 @@ public class Main {
 		Place here = map.getRoadA().get(0);
 		while (true) {
 			System.out.println(here);
+			human.status();
 			Monster monster = checkMonster.exec(here);
 			if (monster != null) {
 				BattleMonster battleMonster = new BattleMonster();
