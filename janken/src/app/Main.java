@@ -7,8 +7,8 @@ public class Main {
 		com.nextHand();
 		Human human = new Human();
 		human.nextHand();
-		Game game = new Game();
-		game.judge(com, human);
+		com.judge(human);
+		human.judge(com);
 		com.printResult();
 		human.printResult();
 	}

@@ -6,13 +6,14 @@ public class Com extends Player {
 	
 	public Com() {
 		this("コム");
-		// this.name = "コム";
 	}
 	public Com(String name) {
-		this.name = name;
+		super(name);
 	}
+	@Override
 	public void nextHand() {
-		this.hand = new Random().nextInt(3);
+		int hnd = new Random().nextInt(3);
+		this.setHand(hnd);
 	}
 
 }
