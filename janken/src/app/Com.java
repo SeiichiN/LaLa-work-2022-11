@@ -2,10 +2,7 @@ package app;
 
 import java.util.Random;
 
-public class Com {
-	String name;
-	int hand;
-	String result;
+public class Com extends Player {
 	
 	public Com() {
 		this("コム");
@@ -17,9 +14,5 @@ public class Com {
 	public void nextHand() {
 		this.hand = new Random().nextInt(3);
 	}
-	public void printResult() {
-		System.out.println
-		(this.name + "の手は" + this.hand + 
-				" 結果:" + this.result);
-	}
+
 }

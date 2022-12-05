@@ -1,25 +1,19 @@
 package app;
 
-import java.util.Random;
+import java.util.Scanner;
 
-public class Human {
-	String name;
-	int hand;
-	String result;
+public class Human extends Player {
 	
 	public Human() {
-		this("コム");
+		this("あなた");
 		// this.name = "コム";
 	}
 	public Human(String name) {
 		this.name = name;
 	}
+	@Override
 	public void nextHand() {
-		this.hand = new Random().nextInt(3);
-	}
-	public void printResult() {
-		System.out.println
-		(this.name + "の手は" + this.hand + 
-				" 結果:" + this.result);
+		System.out.print("0:グー 1:チョキ 2:パー > ");
+		this.hand = new Scanner(System.in).nextInt();
 	}
 }
