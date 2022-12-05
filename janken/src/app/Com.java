@@ -2,24 +2,18 @@ package app;
 
 import java.util.Random;
 
-public class Com {
-	String name;
-	int hand;
-	String result;
+public class Com extends Player {
 	
 	public Com() {
 		this("コム");
-		// this.name = "コム";
 	}
 	public Com(String name) {
-		this.name = name;
+		super(name);
 	}
+	@Override
 	public void nextHand() {
-		this.hand = new Random().nextInt(3);
+		int hnd = new Random().nextInt(3);
+		this.setHand(hnd);
 	}
-	public void printResult() {
-		System.out.println
-		(this.name + "の手は" + this.hand + 
-				" 結果:" + this.result);
-	}
+
 }
