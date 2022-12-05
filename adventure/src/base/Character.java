@@ -17,18 +17,6 @@ public abstract class Character {
 		System.out.println(getName() + " HP:" + getHp());
 	}
 	
-	public void attack(Monster m) {
-		System.out.println(this.getName() + "は" + m.getName() + "を攻撃した");
-		m.setHp(m.getHp() - this.getAttackHp());
-		System.out.println(m.getName() + "に" + this.getAttackHp() + "ポイントのダメージを与えた");
-	}
-	
-	public void attack(Human h) {
-		System.out.println(this.getName() + "は" + h.getName() + "を攻撃した");
-		h.setHp(h.getHp() - this.getAttackHp());
-		System.out.println(h.getName() + "に" + this.getAttackHp() + "ポイントのダメージを与えた");
-	}
-
 	public String toString() {
 		return this.name + ":" + this.hp + ":" + this.attackHp;
 	}
