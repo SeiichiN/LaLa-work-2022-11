@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.Scanner;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,7 +55,7 @@ public class P697 {
 				+ word + "&source=en&target=ja";
 		URL u = new URL(urlTxt);
 		InputStream is = u.openStream();
-		reader = new BufferedReader(new InputStreamReader(is));
+		reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 		String jsonData = reader.readLine();
 		JSONObject json = new JSONObject(jsonData);
 		String jaText = json.getString("text");
