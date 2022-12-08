@@ -25,7 +25,7 @@ public class Main {
 		while (true) {
 			for (Monster m : mList) {
 				m.attack(hList);
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 			}
 			for (int i = 0; i < hList.size(); i++) {
 				if (hList.get(i).getHp() <= 0) {
@@ -36,7 +36,7 @@ public class Main {
 
 			for (Human h : hList) {
 				h.attack(mList);
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 			}
 			for (int i = 0; i < mList.size(); i++) {
 				if (mList.get(i).getHp() <= 0) {

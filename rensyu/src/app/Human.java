@@ -6,12 +6,13 @@ public abstract class Human {
 	private String name;
 	private int hp;
 	private int attackHp;
+	public static final int MAX_HP = 100;
 	
 	public Human() {
 		this("人間");
 	}
 	public Human(String name) {
-		this(name, 100, 10);
+		this(name, MAX_HP, 10);
 	}
 	public Human(String name, int hp, int attackHp) {
 		this.name = name;
@@ -28,22 +29,32 @@ public abstract class Human {
 	}
 	
 	public void attack(Monster m) {
-		System.out.println(m.getName() + "を攻撃します。");
+		System.out.print(m.getName() + " ==> ");
 		// int damage = new Random().nextInt(this.attackHp + 1);
 		int damage = (int)(Math.random() * (this.attackHp + 1));
-		System.out.println(m.getName() + "に" 
-		  + damage + "のダメージを与えた。");
+		System.out.println(m.getName() + " ");
+		for (int i = 0; i <= damage; i++) {
+			System.out.print("X");
+		}
+		System.out.println(" " + damage);
 		m.setHp(m.getHp() - damage);
 	}
 	
 	public void attack(List<Monster> mList) {
 		if (this.hp <= 0) { return; }
 		int num = (int)(Math.random() * mList.size());
-		System.out.println(this.name + "が" + mList.get(num).getName() + "を攻撃");
+		if (mList.get(num).getHp() <= 0) { return; }
+		System.out.print(this.name + " ==> " + mList.get(num).getName() + " ");
 		int damage = (int)(Math.random() * (this.attackHp + 1));
-		System.out.println(mList.get(num).getName() + "に" 
-				  + damage + "のダメージを与えた。");
+		System.out.print(" " + damage + " ");
 		mList.get(num).setHp(mList.get(num).getHp() - damage);
+		int enemyHp = mList.get(num).getHp() / 10;
+		if (enemyHp > 0) {
+			for (int i=0; i <= enemyHp ; i++) {
+				System.out.print("*");
+			}
+		}
+		System.out.println();
 	}
 
 	public String getName() {
