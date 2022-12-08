@@ -22,6 +22,7 @@ public abstract class Monster {
 	}
 	
 	public void attack(Hero h) {
+		if (this.hp <= 0) { return; }
 		System.out.println(this.name + "が" + h.getName() + "を攻撃。");
 		// int damage = new Random().nextInt(this.attackHp + 1);
 		int damage = (int)(Math.random() * (this.attackHp + 1));

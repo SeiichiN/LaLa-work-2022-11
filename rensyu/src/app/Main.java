@@ -8,6 +8,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Hero h = new Hero("桃太郎");
+		h.setHp(500);
 		h.setAttackHp(50);
 		List<Monster> mList = new ArrayList<>();
 		mList.add(new Goblin("赤鬼"));
@@ -22,7 +23,8 @@ public class Main {
 			if (h.getHp() <= 0) { break; }
 			target = selectEnemy(mList);
 			h.attack(target);
-			if (target.getHp() <= 0) { break; }
+			int isDead = monsterDeadCount(mList);
+			if (isDead == mList.size()) { break; }
 
 			printStatus(h, mList);
 			if (sentaku().equals("n")) {
@@ -45,10 +47,22 @@ public class Main {
 		}
 	}
 	
+	public static int monsterDeadCount(List<Monster> mList) {
+		int isDead = 0;
+		for (Monster m : mList) {
+			if (m.getHp() <= 0) {
+				isDead++;
+			}
+		}
+		return isDead;
+	}
+	
 	public static Monster selectEnemy(List<Monster> mList) {
 		System.out.println("どれを攻撃しますか？ No > ");
 		for (int i = 0; i < mList.size(); i++) {
-			System.out.print(i + ":" + mList.get(i).getName());
+			if (mList.get(i).getHp() > 0) {
+				System.out.print(i + ":" + mList.get(i).getName());
+			}
 		}
 		int no = new Scanner(System.in).nextInt();
 		return mList.get(no);
