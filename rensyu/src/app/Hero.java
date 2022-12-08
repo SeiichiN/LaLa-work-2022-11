@@ -5,13 +5,22 @@ public class Hero {
 	private int hp;
 	private int attackHp;
 	
+	public Hero() {
+		this("ヒーロー");
+	}
+	public Hero(String name) {
+		this.name = name;
+		this.hp = 100;
+		this.attackHp = 20;
+	}
+	
 	public void attack(Monster m) {
 		System.out.println(m.getName() + "を攻撃します。");
 		// int damage = new Random().nextInt(this.attackHp + 1);
 		int damage = (int)(Math.random() * (this.attackHp + 1));
-		
-//		モンスターのhpポイントを、その攻撃ポイント分減らす。
-//		「<モンスターの名前>に<攻撃ポイント>のダメージを与えた。」と表示する。		
+		m.setHp(m.getHp() - damage);
+		System.out.println(m.getName() + "に" 
+		  + damage + "のダメージを与えた。");
 	}
 
 	public String getName() {
