@@ -77,7 +77,7 @@ public class Main {
 	private static String getData(URL url) {
 		String data = null;
 		try (InputStream is = url.openStream();) {
-			BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 			data = reader.readLine();
 //			if ((data = reader.readLine()) != null) {
 //				System.out.println(data);
