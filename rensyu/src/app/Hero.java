@@ -14,6 +14,10 @@ public class Hero {
 		this.attackHp = 20;
 	}
 	
+	public String toString() {
+		return this.name + " hp:" + this.hp;
+	}
+	
 	public void attack(Monster m) {
 		System.out.println(m.getName() + "を攻撃します。");
 		// int damage = new Random().nextInt(this.attackHp + 1);

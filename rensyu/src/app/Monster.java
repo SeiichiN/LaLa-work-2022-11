@@ -1,22 +1,28 @@
 package app;
 
-public class Monster {
-	String name;
-	int hp;
-	int attackHp;
+public abstract class Monster {
+	private String name;
+	private int hp;
+	private int attackHp;
 	
 	public Monster() {
 		this("モンスター");
 	}
 	public Monster(String name) {
+		this(name, 100, 20);
+	}
+	public Monster(String name, int hp, int attackHp) {
 		this.name = name;
-		this.hp = 100;
-		this.attackHp = 20;
+		this.hp = hp;
+		this.attackHp = attackHp;
+	}
+
+	public String toString() {
+		return this.name + " hp:" + this.hp;
 	}
 	
-	
 	public void attack(Hero h) {
-		System.out.println(h.getName() + "を攻撃します。");
+		System.out.println(this.name + "が" + h.getName() + "を攻撃。");
 		// int damage = new Random().nextInt(this.attackHp + 1);
 		int damage = (int)(Math.random() * (this.attackHp + 1));
 		h.setHp(h.getHp() - damage);
