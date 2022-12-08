@@ -47,19 +47,26 @@ public class P697 {
 	//		System.out.println(text + ":" + jaText);
 	//	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, JSONException {
 		System.out.print("英単語 > ");
-		String word = new Scanner(System.in).nextLine();
+//		String word = new Scanner(System.in).nextLine();
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String word = reader.readLine();
 		String urlTxt = "https://script.google.com/macros/s/AKfycbxj-0deGFSNF0iPrumoayDWJp7oU4gFvMPa_1iFT4lkXM1EK_EyOPGgAVyjNZn23wsg/exec?text="
 				+ word + "&source=en&target=ja";
 		URL u = new URL(urlTxt);
 		InputStream is = u.openStream();
-		int i = is.read();
-		while (i != -1) {
-			char c = (char) i;
-			System.out.print(c);
-			i = is.read();
-		}
+		reader = new BufferedReader(new InputStreamReader(is));
+		String jsonData = reader.readLine();
+		JSONObject json = new JSONObject(jsonData);
+		String jaText = json.getString("text");
+		System.out.println(jaText);
+//		int i = is.read();
+//		while (i != -1) {
+//			char c = (char) i;
+//			System.out.print(c);
+//			i = is.read();
+//		}
 	}
 
 	private static String getJaWord(String jsonData) {
@@ -75,8 +82,8 @@ public class P697 {
 
 	private static String getData(URL url) {
 		String data = null;
-		try (InputStream is = url.openStream();) {
-			BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+		try (InputStream is = url.openStream();
+			BufferedReader reader = new BufferedReader(new InputStreamReader(is)); ) {
 			if ((data = reader.readLine()) != null) {
 				System.out.println(data);
 			}
