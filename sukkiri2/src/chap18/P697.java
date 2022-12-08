@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
@@ -28,24 +27,39 @@ import org.json.JSONObject;
  */
 public class P697 {
 
-	public static void main(String[] args) throws MalformedURLException {
-		System.out.print("英単語を入力 > ");
-
-		String text = null;
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		try {
-			text = reader.readLine();
-		} catch (IOException e) {
-			e.printStackTrace();
+//	public static void main(String[] args) throws MalformedURLException {
+//		System.out.print("英単語を入力 > ");
+//
+//		String text = null;
+//		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//		try {
+//			text = reader.readLine();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//
+//		String urltxt = "https://script.google.com/macros/s/AKfycbxj-0deGFSNF0iPrumoayDWJp7oU4gFvMPa_1iFT4lkXM1EK_EyOPGgAVyjNZn23wsg/exec?text="
+//				+ text + "&source=en&target=ja";
+//		URL u = new URL(urltxt);
+//
+//		String jsonData = getData(u);
+//		String jaText = getJaWord(jsonData);
+//		System.out.println(text + ":" + jaText);
+//	}
+	
+	public static void main(String[] args) throws IOException {
+		System.out.print("英単語 > ");
+		String word = new Scanner(System.in).nextLine();
+		String urlTxt =
+				"https://script.google.com/macros/s/AKfycbxj-0deGFSNF0iPrumoayDWJp7oU4gFvMPa_1iFT4lkXM1EK_EyOPGgAVyjNZn23wsg/exec?text=" + word +"&source=en&target=ja";
+		URL u = new URL(urlTxt);
+		InputStream is = u.openStream();
+		int i = is.read();
+		while (i != -1) {
+			char c = (char) i;
+			System.out.print(c);
+			i = is.read();
 		}
-
-		String urltxt = "https://script.google.com/macros/s/AKfycbxj-0deGFSNF0iPrumoayDWJp7oU4gFvMPa_1iFT4lkXM1EK_EyOPGgAVyjNZn23wsg/exec?text="
-				+ text + "&source=en&target=ja";
-		URL u = new URL(urltxt);
-
-		String jsonData = getData(u);
-		String jaText = getJaWord(jsonData);
-		System.out.println(text + ":" + jaText);
 	}
 
 	private static String getJaWord(String jsonData) {
