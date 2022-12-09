@@ -19,7 +19,11 @@ import org.json.JSONObject;
  * キーボード入力を受け付ける2つの方法【BufferedReader & Scanner】
  * https://reasonable-code.com/java-keyboard-input/
  * 
- * stleary / JSON-java https://github.com/stleary/JSON-java
+ * まめぞうの技術メモ
+ * https://tech.mamezou00000.com/entry/Java-JSON
+ * 
+ * stleary / JSON-java 
+ * https://github.com/stleary/JSON-java
  * 
  * @author se-ichi
  *
