@@ -44,20 +44,19 @@ public abstract class Monster {
 	}
 
 	public void attack(List<Human> hList) {
-		if (this.hp <= 0) { return; }
+		if (this.getHp() <= 0) { return; }
 		int num = (int)(Math.random() * hList.size());
-		if (hList.get(num).getHp() <= 0) { return; }
-		System.out.print(this.name + " ==> ");
-		int damage = (int)(Math.random() * (this.attackHp + 1));
+		int damage = (int)(Math.random() * (this.getAttackHp() + 1));
+		int newHp = hList.get(num).getHp() - damage;
+		hList.get(num).setHp(newHp);
+		
+		System.out.print(this.getName() + " ==> ");
 		System.out.print(damage + " ");
-		System.out.print(hList.get(num).getName() + " ");
-		hList.get(num).setHp(hList.get(num).getHp() - damage);
+		System.out.print
+		  (hList.get(num).getName() + " ");
 		if (hList.get(num).getHp() <= 0) { return; }
-		int enemyHp = hList.get(num).getHp() / 10;
-		if (enemyHp > 0) {
-			for (int i=0; i <= enemyHp ; i++) {
-				System.out.print("*");
-			}
+		for (int i = 0; i < newHp / 10; i++) {
+			System.out.print("*");
 		}
 		System.out.println();
 	}
@@ -81,7 +80,8 @@ public abstract class Monster {
 	public void setHp(int hp) {
 		if (hp <= 0) {
 			hp = 0;
-			System.out.println(this.getName() + "は倒れた。");
+			System.out.println
+			  (this.getName() + "は倒れた");
 		}
 		this.hp = hp;
 	}

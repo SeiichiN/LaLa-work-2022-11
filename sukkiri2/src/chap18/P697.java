@@ -30,27 +30,7 @@ import org.json.JSONObject;
  */
 public class P697 {
 
-	//	public static void main(String[] args) throws MalformedURLException {
-	//		System.out.print("英単語を入力 > ");
-	//
-	//		String text = null;
-	//		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-	//		try {
-	//			text = reader.readLine();
-	//		} catch (IOException e) {
-	//			e.printStackTrace();
-	//		}
-	//
-	//		String urltxt = "https://script.google.com/macros/s/AKfycbxj-0deGFSNF0iPrumoayDWJp7oU4gFvMPa_1iFT4lkXM1EK_EyOPGgAVyjNZn23wsg/exec?text="
-	//				+ text + "&source=en&target=ja";
-	//		URL u = new URL(urltxt);
-	//
-	//		String jsonData = getData(u);
-	//		String jaText = getJaWord(jsonData);
-	//		System.out.println(text + ":" + jaText);
-	//	}
-
-	public static void main(String[] args) throws IOException, JSONException {
+	public static void main(String[] args) throws IOException  {
 		System.out.print("英単語 > ");
 //		String word = new Scanner(System.in).nextLine();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -59,17 +39,13 @@ public class P697 {
 				+ word + "&source=en&target=ja";
 		URL u = new URL(urlTxt);
 		InputStream is = u.openStream();
-		reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-		String jsonData = reader.readLine();
-		JSONObject json = new JSONObject(jsonData);
-		String jaText = json.getString("text");
-		System.out.println(jaText);
-//		int i = is.read();
-//		while (i != -1) {
-//			char c = (char) i;
-//			System.out.print(c);
-//			i = is.read();
-//		}
+		reader = 
+				new BufferedReader
+				  (new InputStreamReader(is));
+		String data = reader.readLine();
+		if (data != null) {
+			System.out.println(data);
+		}
 	}
 
 	private static String getJaWord(String jsonData) {

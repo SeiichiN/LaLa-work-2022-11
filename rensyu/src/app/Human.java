@@ -8,7 +8,7 @@ public abstract class Human {
 	private int attackHp;
 	
 	public Human() {
-		this("人間");
+		this("ヒューマン");
 	}
 	public Human(String name) {
 		this(name, 100, 10);
@@ -20,43 +20,35 @@ public abstract class Human {
 	}
 	
 	public String toString() {
-		String hp = "*";
-		for (int i = 0; i < this.hp / 10; i++) {
-			hp = hp + "*";
-		}
-		return this.name + ":" + hp;
+		return this.name + " hp:" + this.hp;
 	}
 	
 	public void attack(Monster m) {
-		System.out.print(m.getName() + " ==> ");
+		System.out.println(m.getName() + "を攻撃します。");
 		// int damage = new Random().nextInt(this.attackHp + 1);
 		int damage = (int)(Math.random() * (this.attackHp + 1));
-		System.out.println(m.getName() + " ");
-		for (int i = 0; i <= damage; i++) {
-			System.out.print("X");
-		}
-		System.out.println(" " + damage);
 		m.setHp(m.getHp() - damage);
+		System.out.println(m.getName() + "に" 
+		  + damage + "のダメージを与えた。");
 	}
-	
+
 	public void attack(List<Monster> mList) {
-		if (this.hp <= 0) { return; }
+		if (this.getHp() <= 0) { return; }
 		int num = (int)(Math.random() * mList.size());
-		if (mList.get(num).getHp() <= 0) { return; }
-		System.out.print(this.name + " ==> ");
-		int damage = (int)(Math.random() * (this.attackHp + 1));
+		int damage = (int)(Math.random() * (this.getAttackHp() + 1));
+		int newHp = mList.get(num).getHp() - damage;
+		mList.get(num).setHp(newHp);
+		
+		System.out.print(this.getName() + " ==> ");
 		System.out.print(damage + " ");
-		System.out.print(mList.get(num).getName() + " ");
-		mList.get(num).setHp(mList.get(num).getHp() - damage);
+		System.out.print
+		  (mList.get(num).getName() + " ");
 		if (mList.get(num).getHp() <= 0) { return; }
-		int enemyHp = mList.get(num).getHp() / 10;
-		if (enemyHp > 0) {
-			for (int i=0; i <= enemyHp ; i++) {
-				System.out.print("*");
-			}
+		for (int i = 0; i < newHp / 10; i++) {
+			System.out.print("*");
 		}
 		System.out.println();
-	}
+	}	
 
 	public String getName() {
 		return name;
@@ -72,8 +64,9 @@ public abstract class Human {
 
 	public void setHp(int hp) {
 		if (hp <= 0) {
-			hp = 0; 
-			System.out.println(this.getName() + "は倒れた。");
+			hp = 0;
+			System.out.println
+			  (this.getName() + "は倒れた");
 		}
 		this.hp = hp;
 	}

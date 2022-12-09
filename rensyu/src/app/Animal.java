@@ -6,7 +6,6 @@ public class Animal extends Human {
 		this("けらい");
 	}
 	public Animal(String name) {
-		super(name, 100, 5);
+		super(name, 80, 5);
 	}
-	
 }
