@@ -7,52 +7,74 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		Hero h = new Hero("桃太郎");
-		h.setAttackHp(50);
+		List<Human> hList = new ArrayList<>();
+		hList.add(new Hero("桃太郎"));
+		hList.add(new Animal("さる"));
+		hList.add(new Animal("いぬ"));
+		hList.add(new Animal("きじ"));
+		
 		List<Monster> mList = new ArrayList<>();
 		mList.add(new Goblin("赤鬼"));
 		mList.add(new Dragon("やまたのおろち"));
+		mList.add(new Slime("スライム"));
 
 		boolean getaway = false;
-		Monster target = null;
 		while (true) {
+			// モンスターの攻撃
+			System.out.println("--- 鬼ヶ島軍団の攻撃 ---");
 			for (Monster m : mList) {
-				m.attack(h);
+				m.attack(hList);
 			}
-			if (h.getHp() <= 0) { break; }
-			target = selectEnemy(mList);
-			h.attack(target);
-			if (target.getHp() <= 0) { break; }
+			for (int i = 0; i < hList.size(); i++) {
+				if (hList.get(i).getHp() <= 0) {
+					hList.remove(i);
+				}
+			}
+			if (hList.isEmpty()) { break; }
+			
+			// ヒューマンの攻撃
+			System.out.println("--- 桃太郎たちの攻撃 ---");
+			for (Human h : hList) {
+				h.attack(mList);
+			}
+			for (int i = 0; i < mList.size(); i++) {
+				if (mList.get(i).getHp() <= 0) {
+					mList.remove(i);
+				}
+			}
+			if (mList.isEmpty()) { break; }
+			
 
-			printStatus(h, mList);
+			printStatus(hList, mList);
 			if (sentaku().equals("n")) {
 				getaway = true;
 				break;
 			}
 
+		}  // while end
+		
+		if (mList.isEmpty()) {
+			System.out.println
+			  ("鬼ヶ島軍団は全滅した。");
 		}
-		if (target.getHp() <= 0) {
-			System.out.println(h.getName() + "は" 
-					+ target.getName() + "を倒した");
-		}
-		if (h.getHp() <= 0) {
-			System.out.println(h.getName() + "は"
-					+ "倒された。");
+		if (hList.isEmpty()) {
+			System.out.println
+			  ("桃太郎軍団は鬼ヶ島討伐に失敗した。");
 		}
 		if (getaway) {
-			System.out.println(h.getName() + "は"
-					+ "逃げ出した。");
+			System.out.println
+			  ("桃太郎軍団は逃げ出した。");
 		}
-	}
+	}  // main end
 	
-	public static Monster selectEnemy(List<Monster> mList) {
-		System.out.println("どれを攻撃しますか？ No > ");
-		for (int i = 0; i < mList.size(); i++) {
-			System.out.print(i + ":" + mList.get(i).getName());
-		}
-		int no = new Scanner(System.in).nextInt();
-		return mList.get(no);
-	}
+//	public static Monster selectEnemy(List<Monster> mList) {
+//		System.out.println("どれを攻撃しますか？ No > ");
+//		for (int i = 0; i < mList.size(); i++) {
+//			System.out.print(i + ":" + mList.get(i).getName());
+//		}
+//		int no = new Scanner(System.in).nextInt();
+//		return mList.get(no);
+//	}
 	
 	public static String sentaku() {
 		System.out.println
@@ -61,8 +83,13 @@ public class Main {
 		return cmd;
 	}
 
-	public static void printStatus(Hero h, List<Monster> mList) {
-		System.out.print(h + " ");
+	public static void printStatus
+	         (List<Human> hList, List<Monster> mList) {
+		System.out.println("-----------------------------");
+		for (Human h : hList) {
+			System.out.print(h + " ");
+		}
+		System.out.println();
 		for (Monster m : mList) {
 			System.out.print(m + " ");
 		}

@@ -2,57 +2,53 @@ package app;
 
 import java.util.List;
 
-public abstract class Monster {
+public abstract class Human {
 	private String name;
 	private int hp;
 	private int attackHp;
 	
-	public Monster() {
-		this("モンスター");
+	public Human() {
+		this("ヒューマン");
 	}
-	public Monster(String name) {
-		this(name, 100, 20);
+	public Human(String name) {
+		this(name, 100, 10);
 	}
-	public Monster(String name, int hp, int attackHp) {
+	public Human(String name, int hp, int attackHp) {
 		this.name = name;
 		this.hp = hp;
 		this.attackHp = attackHp;
 	}
-
+	
 	public String toString() {
 		return this.name + " hp:" + this.hp;
 	}
 	
-	public void attack(Hero h) {
-		System.out.println(this.name + "が" + h.getName() + "を攻撃。");
+	public void attack(Monster m) {
+		System.out.println(m.getName() + "を攻撃します。");
 		// int damage = new Random().nextInt(this.attackHp + 1);
 		int damage = (int)(Math.random() * (this.attackHp + 1));
-		h.setHp(h.getHp() - damage);
-		System.out.println(h.getName() + "に" 
+		m.setHp(m.getHp() - damage);
+		System.out.println(m.getName() + "に" 
 		  + damage + "のダメージを与えた。");
 	}
-	
-	public void attack(List<Human> hList) {
+
+	public void attack(List<Monster> mList) {
 		if (this.getHp() <= 0) { return; }
-		int num = (int)(Math.random() * hList.size());
+		int num = (int)(Math.random() * mList.size());
 		int damage = (int)(Math.random() * (this.getAttackHp() + 1));
-		int newHp = hList.get(num).getHp() - damage;
-		hList.get(num).setHp(newHp);
+		int newHp = mList.get(num).getHp() - damage;
+		mList.get(num).setHp(newHp);
 		
 		System.out.print(this.getName() + " ==> ");
 		System.out.print(damage + " ");
 		System.out.print
-		  (hList.get(num).getName() + " ");
-		if (hList.get(num).getHp() <= 0) { return; }
+		  (mList.get(num).getName() + " ");
+		if (mList.get(num).getHp() <= 0) { return; }
 		for (int i = 0; i < newHp / 10; i++) {
 			System.out.print("*");
 		}
 		System.out.println();
-	}
-	
-	public void run() {
-		
-	}
+	}	
 
 	public String getName() {
 		return name;
