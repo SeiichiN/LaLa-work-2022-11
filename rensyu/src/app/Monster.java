@@ -6,14 +6,13 @@ public abstract class Monster {
 	private String name;
 	private int hp;
 	private int attackHp;
-	public static final int MAX_HP = 100;
 
 	public Monster() {
 		this("モンスター");
 	}
 
 	public Monster(String name) {
-		this(name, MAX_HP, 20);
+		this(name, 100, 20);
 	}
 
 	public Monster(String name, int hp, int attackHp) {
@@ -48,10 +47,12 @@ public abstract class Monster {
 		if (this.hp <= 0) { return; }
 		int num = (int)(Math.random() * hList.size());
 		if (hList.get(num).getHp() <= 0) { return; }
-		System.out.print(this.name + " ==> " + hList.get(num).getName() + " ");
+		System.out.print(this.name + " ==> ");
 		int damage = (int)(Math.random() * (this.attackHp + 1));
+		System.out.print(damage + " ");
+		System.out.print(hList.get(num).getName() + " ");
 		hList.get(num).setHp(hList.get(num).getHp() - damage);
-		System.out.print(" " + damage + " ");
+		if (hList.get(num).getHp() <= 0) { return; }
 		int enemyHp = hList.get(num).getHp() / 10;
 		if (enemyHp > 0) {
 			for (int i=0; i <= enemyHp ; i++) {

@@ -6,13 +6,12 @@ public abstract class Human {
 	private String name;
 	private int hp;
 	private int attackHp;
-	public static final int MAX_HP = 100;
 	
 	public Human() {
 		this("人間");
 	}
 	public Human(String name) {
-		this(name, MAX_HP, 10);
+		this(name, 100, 10);
 	}
 	public Human(String name, int hp, int attackHp) {
 		this.name = name;
@@ -44,10 +43,12 @@ public abstract class Human {
 		if (this.hp <= 0) { return; }
 		int num = (int)(Math.random() * mList.size());
 		if (mList.get(num).getHp() <= 0) { return; }
-		System.out.print(this.name + " ==> " + mList.get(num).getName() + " ");
+		System.out.print(this.name + " ==> ");
 		int damage = (int)(Math.random() * (this.attackHp + 1));
-		System.out.print(" " + damage + " ");
+		System.out.print(damage + " ");
+		System.out.print(mList.get(num).getName() + " ");
 		mList.get(num).setHp(mList.get(num).getHp() - damage);
+		if (mList.get(num).getHp() <= 0) { return; }
 		int enemyHp = mList.get(num).getHp() / 10;
 		if (enemyHp > 0) {
 			for (int i=0; i <= enemyHp ; i++) {
