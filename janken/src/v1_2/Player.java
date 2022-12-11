@@ -29,6 +29,10 @@ public abstract class Player {
 	 * "win" -- 001
 	 * "draw -- 010
 	 *  "lose" -- 100
+	 *  
+	 *  001 | 001 => 001
+	 *  001 | 010 => 011
+	 *  001 | 101 => 101
 	 */
 	public void setResult() {
 		byte flag = 0b00000000;

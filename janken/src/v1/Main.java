@@ -1,5 +1,12 @@
 package v1;
 
+/**
+ * Game勝敗を判定するクラスGame を作成する。
+ * Gameクラスのjudge()メソッドが判定する。
+ * 
+ * @author se-ichi
+ *
+ */
 public class Main {
 
 	public static void main(String[] args) {
