@@ -13,12 +13,14 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		System.out.print("英単語 > ");
-		String word = new Scanner(System.in).nextLine();
+		// String word = new Scanner(System.in).nextLine();
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String word = reader.readLine();
 		String urlTxt = "https://script.google.com/macros/s/AKfycbxj-0deGFSNF0iPrumoayDWJp7oU4gFvMPa_1iFT4lkXM1EK_EyOPGgAVyjNZn23wsg/exec?text="
 				+ word + "&source=en&target=ja";
 		URL u = new URL(urlTxt);
 		InputStream is = u.openStream();
-		BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+		reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 		String jsondata = reader.readLine();
 		if (jsondata != null) {
 			JSONObject jsonObj = new JSONObject(jsondata);
