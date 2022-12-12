@@ -1,6 +1,6 @@
 package app;
 
-public class Mallard extends Bird implements Flying, Swimming {
+public class Mallard extends Bird implements Flyable, Swimable {
 
 	public Mallard(String name) {
 		super(name);

@@ -1,5 +1,5 @@
 package app;
 
-public interface Swimming {
+public interface Swimable {
 	void swim();
 }

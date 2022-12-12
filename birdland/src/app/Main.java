@@ -7,22 +7,22 @@ public class Main {
 
 	public static void main(String[] args) {
 		List<Bird> birdList = new ArrayList<>();
-		Chicken chicken = new Chicken("にわとり");
+		Bird chicken = new Chicken("にわとり");
 		birdList.add(chicken);
-		Duck duck = new Duck("あひる");
+		Bird duck = new Duck("あひる");
 		birdList.add(duck);
-		Mallard mallard = new Mallard("まがも");
+		Bird mallard = new Mallard("まがも");
 		birdList.add(mallard);
-		RubberDuck rubberDuck = new RubberDuck("ラバーダック");
+		Swimable rubberDuck = new RubberDuck("ラバーダック");
 		
 		for (Bird bird : birdList) {
 			bird.sing();
-			if (bird instanceof Flying) {
-				Flying flybird = (Flying) bird;
+			if (bird instanceof Flyable) {
+				Flyable flybird = (Flyable) bird;
 				flybird.fly();
 			}
-			if (bird instanceof Swimming) {
-				Swimming swimbird = (Swimming) bird;
+			if (bird instanceof Swimable) {
+				Swimable swimbird = (Swimable) bird;
 				swimbird.swim();
 			}
 		}

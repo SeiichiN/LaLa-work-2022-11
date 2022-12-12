@@ -1,6 +1,6 @@
 package app;
 
-public class Duck extends Bird implements Swimming {
+public class Duck extends Bird implements Swimable {
 	public Duck(String name) {
 		super(name);
 	}

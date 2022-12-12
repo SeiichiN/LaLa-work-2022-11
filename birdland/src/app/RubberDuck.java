@@ -1,6 +1,6 @@
 package app;
 
-public class RubberDuck implements Swimming {
+public class RubberDuck implements Swimable {
 	String name;
 	
 	public RubberDuck(String name) {

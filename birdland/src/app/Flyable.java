@@ -1,5 +1,5 @@
 package app;
 
-public interface Flying {
+public interface Flyable {
 	void fly();
 }
