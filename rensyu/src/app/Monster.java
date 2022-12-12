@@ -2,6 +2,16 @@ package app;
 
 import java.util.List;
 
+/**
+ * モンスタークラス（抽象クラス）
+ * このクラスをもとに、Dragonクラス、Goblinクラス、
+ * Slimeクラスを作成する。
+ * 
+ * https://xxxxx.com/dddd.html
+ * 
+ * @author Seiichi Nukayama
+ *
+ */
 public abstract class Monster {
 	private String name;
 	private int hp;
@@ -42,9 +52,17 @@ public abstract class Monster {
 		System.out.println(" " + damage);
 		h.setHp(h.getHp() - damage);
 	}
-
+	
+	/**
+	 * 桃太郎軍団の一人を乱数によって決め、
+	 * その一人を攻撃するメソッド。
+	 * 
+	 * @param hList -- 桃太郎軍団(桃太郎、さる、きじ、いぬ)
+	 */
 	public void attack(List<Human> hList) {
+		// 鬼ヶ島軍団のそれぞれのHPが0以下なら、もどる。
 		if (this.getHp() <= 0) { return; }
+		// 0...3のどれにするかを決める。
 		int num = (int)(Math.random() * hList.size());
 		int damage = (int)(Math.random() * (this.getAttackHp() + 1));
 		int newHp = hList.get(num).getHp() - damage;
