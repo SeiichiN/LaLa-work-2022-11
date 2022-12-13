@@ -1,10 +1,9 @@
 package app;
 
-public class RubberDuck implements Swimable {
-	String name;
+public class RubberDuck extends Toy implements Swimable {
 	
 	public RubberDuck(String name) {
-		this.name = name;
+		super(name);
 	}
 	
 	@Override

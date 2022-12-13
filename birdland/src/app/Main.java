@@ -13,7 +13,7 @@ public class Main {
 		birdList.add(duck);
 		Bird mallard = new Mallard("まがも");
 		birdList.add(mallard);
-		Swimable rubberDuck = new RubberDuck("ラバーダック");
+		Toy rubberDuck = new RubberDuck("ラバーダック");
 		
 		for (Bird bird : birdList) {
 			bird.sing();
@@ -27,7 +27,7 @@ public class Main {
 			}
 		}
 		
-		rubberDuck.swim();
+		((Swimable)rubberDuck).swim();
 	}
 
 }
