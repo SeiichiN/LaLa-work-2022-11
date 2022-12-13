@@ -8,17 +8,17 @@ public class Mallard extends Bird implements Flyable, Swimable {
 
 	@Override
 	public void sing() {
-		System.out.println(this.name + "はグエグエグエと鳴いた");
+		System.out.println(this.getName() + "はグエグエグエと鳴いた");
 	}
 
 	@Override
 	public void fly() {
-		System.out.println(this.name + "は空を飛んだ");
+		System.out.println(this.getName() + "は空を飛んだ");
 	}
 
 	@Override
 	public void swim() {
-		System.out.println(this.name + "はすいすいと泳いだ");
+		System.out.println(this.getName() + "はすいすいと泳いだ");
 	}
 	
 }

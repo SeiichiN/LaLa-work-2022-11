@@ -8,7 +8,7 @@ public class Chicken extends Bird {
 
 	@Override
 	public void sing() {
-		System.out.println(this.name + "はコケコッコーと鳴いた");
+		System.out.println(this.getName() + "はコケコッコーと鳴いた");
 	}
 
 }
