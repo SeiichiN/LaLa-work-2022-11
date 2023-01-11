@@ -1,0 +1,17 @@
+/**
+ * (参考) URL URLから読み込んだ内容をStream APIで処理
+ * https://qiita.com/kagamihoge/items/916e7015ec871202a5c8
+ * 
+ * BufferedReader 【Java入門】BufferedReaderでテキストをまとめて読み込む(readLine)
+ * https://www.sejuku.net/blog/49981
+ * 
+ * キーボード入力を受け付ける2つの方法【BufferedReader & Scanner】
+ * https://reasonable-code.com/java-keyboard-input/
+ * 
+ * stleary / JSON-java 
+ * https://github.com/stleary/JSON-java
+ * 
+ * @author se-ichi
+ *
+ */
+ 
